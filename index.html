@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Familiearv</title>
+  <link rel="icon" type="image/png" href="icon-f.png" sizes="32x32">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="container">
+    <h1>Krypto Fortjenestekalkulator</h1>
+    <p id="eth-value">Henter data...</p>
+  </div>
+
+  <script>
+    const ethAmount = 0.01952;
+    const totalInvestmentUSD = 26.5227 + 18.8930;
+
+    async function fetchETHProfit() {
+    try {
+        // Hent ETH-pris fra Binance
+        const ethRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT');
+        const ethData = await ethRes.json();
+        const ethPriceUSD = parseFloat(ethData.price);
+
+        // Kalkuler nåverdi i USD
+        const currentValueUSD = ethAmount * ethPriceUSD;
+        const profitUSD = currentValueUSD - totalInvestmentUSD;
+
+        // Hent valutakurs USD → NOK
+        const fxRes = await fetch('https://open.er-api.com/v6/latest/USD');
+        const fxData = await fxRes.json();
+        const usdToNok = fxData.rates.NOK;
+        const profitNOK = profitUSD * usdToNok;
+
+        // Kalkuler % av 500 NOK
+        const percentOf500 = (profitNOK / 500) * 100;
+
+        // Vis resultat
+        document.getElementById('eth-value').textContent =
+        `ETH pris: $${ethPriceUSD.toFixed(2)} | Fortjeneste: $${profitUSD.toFixed(2)} (${profitNOK.toFixed(2)} NOK) ` +
+        `| Det er ${percentOf500.toFixed(2)}% av 500 NOK`;
+    } catch (error) {
+        document.getElementById('eth-value').textContent = 'Feil ved henting av data.';
+        console.error(error);
+    }
+    }
+
+    fetchETHProfit();
+    setInterval(fetchETHProfit, 1000); // Oppdater hvert 10. sekund
+  </script>
+  </main>
+</body>
+</html>
