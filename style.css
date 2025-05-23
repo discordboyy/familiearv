@@ -104,3 +104,25 @@ p {
         text-align: center;
     }
 }
+
+@media (max-width: 400px) {
+    main {
+        margin-top: 60%;
+        max-width: 110vh;
+    }
+
+    h1 {
+        font-size: 140%;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    p {
+        margin-top: 0px;
+        margin-top: 60px;
+        font-size: 80%;
+        width: 80%;
+        text-align: center;
+    }
+}
