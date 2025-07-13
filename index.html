@@ -38,6 +38,8 @@
         // Kalkuler % av 500 NOK
         const percentOf500 = (profitNOK / 750) * 100;
 
+        document.title = `Familiearv - ${profitNOK.toFixed(2)} NOK`;
+
         // Vis resultat
         document.getElementById('eth-value').textContent =
         `ETH pris: $${ethPriceUSD.toFixed(2)} | Fortjeneste: $${profitUSD.toFixed(2)} (${profitNOK.toFixed(2)} NOK) ` +
