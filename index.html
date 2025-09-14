@@ -4,55 +4,413 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Familiearv</title>
-  <link rel="icon" type="image/png" href="icon-f.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="link/icon-familiearv.png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <div class="container">
-    <h1>Krypto Fortjenestekalkulator</h1>
-    <p id="eth-value">Henter data...</p>
-  </div>
+    <main>
+        <div class="banking-menu">
+            <div class="balance-menu">
+                <div class="balance-now">
+                    NOK <span class="odometer" id="total-balance-dynamic">2000</span>
+                </div>
+                <div class="available-total-balance">Available total balance</div>
+                <div class="investment-gap">
+                    <div class="investment-gap-dynamic" id="investment-gap-dynamic-notes">NOK 100</div>
+                    <div class="investment-gap-dynamic" id="investment-gap-dynamic-percent">+24.5%</div>
+                </div>
+            </div>
+            <div class="investetion-menu">
+                <!-- 
+                <div class="filter">
+                    <div class="filter-zone">
+                        <div class="selected-filter">
+                            <div class="crypto-filter">Crypto</div>
+                        </div>
+                        <div class="none-selected">
+                            <div class="activity">Activity</div>
+                            <div class="top">Top %</div>
+                        </div>
+                    </div>
+                <hr>
+                </div> 
+                -->
+                <div class="investment-tabs-container">
+                    <div class="investment-tab">
+                        <div class="container-connection">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name">BNB</div>
+                                    <div class="asset-price" id="bnb-price"></div>
+                                </div>
+                                <div class="percentage-investment" id="bnb-value"></div>
+                            </div>
+                            <div class="return-on-investment">
+                                <div class="profit-bills-dynamic">
+                                    <div class="profit-dynamic" id="bnb-value-notes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investment-tab">
+                        <div class="container-connection">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name">SOL</div>
+                                    <div class="asset-price" id="sol-price"></div>
+                                </div>
+                                <div class="percentage-investment" id="sol-value"></div>
+                            </div>
+                            <div class="return-on-investment">
+                                <div class="profit-bills-dynamic3">
+                                    <div class="profit-dynamic3" id="sol-value-notes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investment-tab">
+                        <div class="container-connection">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name">ETH</div>
+                                    <div class="asset-price" id="eth-price"></div>
+                                </div>
+                                <div class="percentage-investment" id="eth-value"></div>
+                            </div>
+                            <div class="return-on-investment">
+                                <div class="profit-bills-dynamic">
+                                    <div class="profit-dynamic" id="eth-value-notes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investment-tab2">
+                        <div class="container-connection-long-tab">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name">AAVE</div>
+                                    <div class="asset-price" id="aave-price"></div>
+                                </div>
+                                <div class="percentage-investment" id="aave-value"></div>
+                            </div>
+                            <div class="return-on-investment2">
+                                <div class="profit-bills-dynamic">
+                                    <div class="profit-dynamic" id="aave-value-notes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investment-tab2">
+                        <div class="container-connection-long-tab">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name">XRP</div>
+                                    <div class="asset-price" id="xrp-price"></div>
+                                </div>
+                                <div class="percentage-investment" id="xrp-value"></div>
+                            </div>
+                            <div class="return-on-investment2">
+                                <div class="profit-bills-dynamic">
+                                    <div class="profit-dynamic" id="xrp-value-notes"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <script>
-    const ethAmount = 0.02916;
-    const totalInvestmentUSD = 26.5227 + 18.8930 + 24.1000;
+        <section class="project-description">
+            <div class="description-section">
+                <div class="description-hole-logo">
+                    <div class="description-hole">
+                        <div class="description-block">
+                            <div class="title-block">Prosjektbeskrivelse</div>
+                            <div class="text-block">
+                                Målet med prosjektet er å lage en online plattform som viser
+                                resultatene av våre investeringer i kryptovalutaer, aksjer, fond og
+                                valutaer i sanntid. Nettstedet vil fungere som et verktøy for
+                                åpenhet og synlighet for investorer og interesserte parter, slik at
+                                de kan se porteføljens nåværende tilstand og dynamikken i
+                                fortjeneste eller tap når som helst.
+                            </div>
+                            <img class="img-block" src="link/familiearv-site-img-1.png" />
+                        </div>
+                        <div class="description-block">
+                            <div class="title-block">Prosjektets hovedfunksjoner:</div>
+                            <div class="text-block">
+                                <span>
+                                <ul class="text-block">
+                                    <li>
+                                    Sporing av gjeldende saldo på alle investeringer i sanntid.
+                                    </li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>
+                                    Automatisk beregning av fortjeneste og tap i prosent og
+                                    pengemessige termer.
+                                    </li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>
+                                    Visning av gjeldende priser på kryptovalutaer, aksjer og andre
+                                    instrumenter med indikasjon på vekst eller nedgang.
+                                    </li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>
+                                    Automatisk system for gevinstfastsettelse på forhåndsbestemte
+                                    nivåer: 5%, 10%, 15%, 20%, 25% og 50%.
+                                    </li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>
+                                    Offentlig tilgjengelighet av data: hver bruker vil kunne få
+                                    fri tilgang til nettstedet og se investeringsporteføljen i et
+                                    praktisk og visuelt format.
+                                    </li>
+                                </ul>
+                                </span>
+                            </div>
+                            <img class="img-block" src="link/familiearv-site-img-2.png" />
+                        </div>
+                        <div class="description-block">
+                            <div class="title-block">
+                                Sammensetning av investerings-porteføljen:
+                            </div>
+                            <div class="text-block">
+                                <span>
+                                <span class="text-block">
+                                    På nåværende tidspunkt er investeringene konsentrert i følgende
+                                    kryptovalutaer:
+                                    <br />
+                                    <br />
+                                </span>
+                                <ul class="text-block">
+                                    <li>SOL (Solana)</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>XRP (Ripple)</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>ETH (Ethereum)</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>PEPE</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>BTC (Bitcoin)</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>BNB (Binance Coin)</li>
+                                </ul>
+                                <ul class="text-block">
+                                    <li>AAVE</li>
+                                </ul>
+                                </span>
+                            </div>
+                            <img id="card-img-style" class="img-block" src="link/card (1).png"/>
+                        </div>
+                        <div class="description-block">
+                            <div class="title-block">Prosjektfunksjon</div>
+                            <div class="text-block">
+                                Det unike med dette prosjektet ligger ikke bare i dets åpenhet og
+                                publisitet, men også i kilden til investeringskapitaldannelse. En
+                                betydelig del av investeringsmidlene ble samlet inn ved innsamling
+                                og innlevering av flasker, hvoretter inntektene ble brukt til å
+                                kjøpe kryptovalutaer og aksjer. Prosjektet kombinerer dermed en
+                                investeringstilnærming med et element av sosialt og miljømessig
+                                ansvar.
+                            </div>
+                        </div>
+                    </div>
+                    <img class="logo-block-svg-footer" src="link/logo-block-svg-footer.svg" />
+                </div>
+                <hr>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="logo-social-section">
+            <div class="logo-section">
+                <img class="group-7" src="link/F-letter.svg" />
+                <div class="amiliearv">amiliearv</div>
+            </div>
+            <div class="social-section">
+                <a href="/404"><img class="youtube-link" src="link/Youtube-link.svg" /></a>
+                <a href="/404"><img class="facebook-link" src="link/Facebook-link.svg" /></a>
+                <a href="https://www.instagram.com/mertygraal/"><img class="instagram-link" src="link/Instagram-link.svg" /></a>
+                <a href="https://x.com/mertygraal"><img class="x-link" src="link/X-link.svg" /></a>
+                <a href="https://github.com/discordboyy"><img class="github-link" src="link/github-link.svg" /></a>
+                <a href="https://discord.gg/S4EEqQ6N45"><img class="discord-link" src="link/Discord-link.svg" /></a>
+                <a href="https://t.me/creativewebtg"><img class="telegram-link" src="link/Telegram-link.svg" /></a>
+            </div>
+        </div>
+        <div class="law-section">
+            <div class="country-section">
+                <img class="country-icon" src="link/country-icon.png" />
+                <div class="country-name">Norway</div>
+            </div>
+            <div class="law-paragraph">
+            <div class="law-under-layer-5">
+                <div class="law-under-layer-4">
+                <div class="law-under-layer-3">
+                    <div class="law-under-layer-2">
+                    <div class="law-under-layer-1">
+                        <div class="law-text">© Familiearv 2025</div>
+                        <div class="law-text">
+                        For å lære mer om hvordan investeringsporteføljen vår er satt
+                        sammen og forvaltet, kan du lese FAQ-delen på nettstedet.
+                        <br />
+                        Hvis du har ytterligere spørsmål, kan du alltid kontakte oss
+                        via tilbakemeldingsskjemaet.
+                        </div>
+                    </div>
+                    <div class="law-text">
+                        Familiearv – er et åpent investeringsinitiativ med fokus på
+                        åpenhet og tilgjengelighet til informasjon.
+                        <br />
+                        Våre investeringer inkluderer kryptovalutaer (BTC, ETH, SOL,
+                        XRP, BNB, AAVE, PEPE) og andre finansielle instrumenter.
+                        <br />
+                        En del av prosjektets kapital ble reist gjennom resirkulering og
+                        levering av sekundære råvarer, noe som understreker vårt sosiale
+                        og miljømessige fokus.
+                    </div>
+                    </div>
+                    <div class="law-text">
+                    Investering i kryptovalutaer og aksjer innebærer risiko.
+                    <br />
+                    Familiearv er ikke en finansinstitusjon og tilbyr ikke individuell
+                    investeringsrådgivning.
+                    <br />
+                    All informasjon på nettstedet er kun til informasjonsformål.
+                    </div>
+                </div>
+                <div class="law-text">
+                    Investering i kryptovalutaer og aksjer innebærer risiko.
+                    <br />
+                    Familiearv er ikke en finansinstitusjon og tilbyr ikke individuell
+                    investeringsrådgivning.
+                    <br />
+                    All informasjon på nettstedet er kun til informasjonsformål.
+                </div>
+                </div>
+                <div class="law-text">Du kan lese mer om vilkårene for bruk her.</div>
+            </div>
+            <div class="law-links">
+                Nyttige lenker:
+                <br />
+                <a class="link-style" href="/404">Vanlige spørsmål</a> | <a class="link-style" href="/404">Bruksvilkår</a> | <a class="link-style" href="/404">Personvernerklæring</a> |
+                <a class="link-style" href="/404">Kontaktinformasjon</a>
+            </div>
+            </div>
+        </div>
+        <img class="background-footer-big-logo" src="link/background-footer-big-logo.svg"/>
+    </footer>
 
-    async function fetchETHProfit() {
+    <script>
+    // Конфигурация монет
+    const coins = [
+    { symbol: "ETH", amount: 0.02000, investmentUSD: 69.5157, targetNOK: 750 },
+    { symbol: "XRP", amount: 6.00000, investmentUSD: 10.0000, targetNOK: 100 },
+    { symbol: "AAVE", amount: 0.00000, investmentUSD: 0.0000, targetNOK: 1 },
+    { symbol: "SOL", amount: 0.00000, investmentUSD: 0.0000, targetNOK: 1 },,
+    { symbol: "BNB", amount: 0.00000, investmentUSD: 0.0000, targetNOK: 1 }
+    ];
+
+    let lastProfits = {}; // для хранения результатов
+
+    // Универсальная функция обновления
+    async function updateData() {
     try {
-        // Hent ETH-pris fra Binance
-        const ethRes = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT');
-        const ethData = await ethRes.json();
-        const ethPriceUSD = parseFloat(ethData.price);
+        // 1. Получаем все цены монет одним запросом
+        const priceRes = await fetch("https://api.binance.com/api/v3/ticker/price");
+        const prices = await priceRes.json();
+        const priceMap = Object.fromEntries(prices.map(p => [p.symbol, parseFloat(p.price)]));
+        console.log(priceMap);
 
-        // Kalkuler nåverdi i USD
-        const currentValueUSD = ethAmount * ethPriceUSD;
-        const profitUSD = currentValueUSD - totalInvestmentUSD;
-
-        // Hent valutakurs USD → NOK
-        const fxRes = await fetch('https://open.er-api.com/v6/latest/USD');
+        // 2. Получаем курс USD→NOK один раз
+        const fxRes = await fetch("https://open.er-api.com/v6/latest/USD");
         const fxData = await fxRes.json();
         const usdToNok = fxData.rates.NOK;
+        console.log("USD to NOK:", usdToNok);
+
+        let totalProfitNOK = 0;
+
+        // 3. Обрабатываем каждую монету
+        coins.forEach(({ symbol, amount, investmentUSD, targetNOK }) => {
+        const priceUSD = priceMap[symbol + "USDT"];
+        if (!priceUSD) return;
+
+        const currentValueUSD = amount * priceUSD;
+        const profitUSD = currentValueUSD - investmentUSD;
         const profitNOK = profitUSD * usdToNok;
+        const percent = (profitNOK / targetNOK) * 100;
 
-        // Kalkuler % av 500 NOK
-        const percentOf500 = (profitNOK / 750) * 100;
+        // Сохраняем для общего итога
+        lastProfits[symbol] = profitNOK;
+        totalProfitNOK += profitNOK;
 
-        document.title = `Familiearv - ${profitNOK.toFixed(2)} NOK`;
+        // Форматируем и вставляем в DOM
+        const formattedPercent = `${percent >= 0 ? "+" : ""}${percent.toFixed(2)}% av ${targetNOK} NOK`;
+        const formattedProfit = `${profitNOK >= 0 ? "+" : ""}${profitNOK.toFixed(2)} NOK`;
 
-        // Vis resultat
-        document.getElementById('eth-value').textContent =
-        `ETH pris: $${ethPriceUSD.toFixed(2)} | Fortjeneste: $${profitUSD.toFixed(2)} (${profitNOK.toFixed(2)} NOK) ` +
-        `| Det er ${percentOf500.toFixed(2)}% av 750 NOK`;
+        document.getElementById(symbol.toLowerCase() + "-value").textContent = formattedPercent;
+        document.getElementById(symbol.toLowerCase() + "-value-notes").textContent = formattedProfit;
+
+        // Текущая цена
+        document.getElementById(symbol.toLowerCase() + "-price").textContent = `${priceUSD.toFixed(2)} USDT`;
+        });
+
+        // 4. Итоговые значения
+        const totalBalanceEl = document.getElementById("total-balance-dynamic");
+        const percentEl = document.getElementById("investment-gap-dynamic-percent");
+        const notesEl = document.getElementById("investment-gap-dynamic-notes");
+
+        const totalPercent = (totalProfitNOK / (2000 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(2000 + totalProfitNOK).toFixed(0)} NOK`;
+        if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
+        if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
+
     } catch (error) {
-        document.getElementById('eth-value').textContent = 'Feil ved henting av data.';
-        console.error(error);
+        console.error("Feil ved henting av data:", error);
     }
     }
 
-    fetchETHProfit();
-    setInterval(fetchETHProfit, 1000); // Oppdater hvert 1. sekund
-  </script>
-  </main>
+    // Запуск обновления каждые 3 секунды
+    updateData();
+    setInterval(updateData, 3000);
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Scrollytelling effect for description-block
+        const descriptionBlocks = document.querySelectorAll(".description-block");
+        const logoFooter = document.querySelector(".logo-block-svg-footer");
+
+        function checkScrollElements() {
+            descriptionBlocks.forEach(block => {
+                const rect = block.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.75) {
+                    block.classList.add("show");
+                }
+            });
+
+            if (logoFooter) {
+                const rect = logoFooter.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) { // a bit later than blocks
+                    logoFooter.classList.add("show");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", checkScrollElements);
+        checkScrollElements(); // Initial check on load
+    });
+    </script>
 </body>
 </html>
