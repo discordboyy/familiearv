@@ -400,6 +400,7 @@
         // Scrollytelling effect for description-block
         const descriptionBlocks = document.querySelectorAll(".description-block");
         const logoFooter = document.querySelector(".logo-block-svg-footer");
+        const bankingMenu = document.querySelector(".banking-menu");
 
         function checkScrollElements() {
             descriptionBlocks.forEach(block => {
@@ -411,8 +412,17 @@
 
             if (logoFooter) {
                 const rect = logoFooter.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) { // a bit later than blocks
+                if (rect.top < window.innerHeight * 0.85) {
                     logoFooter.classList.add("show");
+                }
+            }
+
+            if (bankingMenu) {
+                const rect = bankingMenu.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    setTimeout(() => {
+                        bankingMenu.classList.add("show");
+                    }, 200); // 0.8 seconds delay
                 }
             }
         }
@@ -420,6 +430,7 @@
         window.addEventListener("scroll", checkScrollElements);
         checkScrollElements(); // Initial check on load
     });
+
 
       // Prevent pinch-to-zoom
     document.addEventListener('touchstart', function (event) {

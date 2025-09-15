@@ -32,7 +32,12 @@ main {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
+
+.banking-menu.show { opacity: 1; transform: translateY(0); }
 
 /* Balance menu */
 .balance-menu {
