@@ -5,6 +5,7 @@
 
 /* Body and font */
 body {
+  touch-action: manipulation; /* helps with gestures on mobile */
   margin: 0;
   background-color: #FAFAFA;
   background-repeat: repeat;
