@@ -15,7 +15,7 @@
         <div class="banking-menu">
             <div class="balance-menu">
                 <div class="balance-now">
-                    NOK <span class="odometer" id="total-balance-dynamic">2000</span>
+                    NOK <span class="odometer" id="total-balance-dynamic">4481</span>
                 </div>
                 <div class="available-total-balance">Available total balance</div>
                 <div class="investment-gap">
@@ -39,7 +39,8 @@
                 </div> 
                 -->
                 <div class="investment-tabs-container">
-                    <div class="investment-tab">
+                    <!-- Investment Tabs Start 
+                                        <div class="investment-tab">
                         <div class="container-connection">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
@@ -87,18 +88,20 @@
                             </div>
                         </div>
                     </div>
+                    -->
+
                     <div class="investment-tab2">
                         <div class="container-connection-long-tab">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
-                                    <div class="asset-name">AAVE</div>
-                                    <div class="asset-price" id="aave-price"></div>
+                                    <div class="asset-name">Cash</div>
+                                    <div class="asset-price" id="kontanter-price">Penger i kontanter</div>
                                 </div>
-                                <div class="percentage-investment" id="aave-value"></div>
+                                <div class="percentage-investment" id="kontanter-value">2481 NOK</div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="aave-value-notes"></div>
+                                    <div class="profit-dynamic" id="kontanter-value-notes">2481 NOK</div>
                                 </div>
                             </div>
                         </div>
@@ -107,14 +110,14 @@
                         <div class="container-connection-long-tab">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
-                                    <div class="asset-name">XRP</div>
-                                    <div class="asset-price" id="xrp-price"></div>
+                                    <div class="asset-name">SOL</div>
+                                    <div class="asset-price" id="sol-price"></div>
                                 </div>
-                                <div class="percentage-investment" id="xrp-value"></div>
+                                <div class="percentage-investment" id="sol-value"></div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="xrp-value-notes"></div>
+                                    <div class="profit-dynamic" id="sol-value-notes"></div>
                                 </div>
                             </div>
                         </div>
@@ -324,11 +327,7 @@
     <script>
     // Конфигурация монет
     const coins = [
-    { symbol: "ETH", amount: 0.02000, investmentUSD: 69.5157, targetNOK: 750 },
-    { symbol: "XRP", amount: 6.00000, investmentUSD: 10.0000, targetNOK: 100 },
-    { symbol: "AAVE", amount: 0.00000, investmentUSD: 0.0000, targetNOK: 1 },
-    { symbol: "SOL", amount: 0.24975040, investmentUSD: 46.54, targetNOK: 468.47 },,
-    { symbol: "BNB", amount: 0.00000, investmentUSD: 0.0000, targetNOK: 1 }
+    { symbol: "SOL", amount: 0.24975040, investmentUSD: 46.54, targetNOK: 468.47 },
     ];
 
     let lastProfits = {}; // для хранения результатов
@@ -380,8 +379,8 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (2000 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(2000 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (4481 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(4481 + totalProfitNOK).toFixed(0)} NOK`;
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
