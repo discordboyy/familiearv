@@ -15,7 +15,7 @@
         <div class="banking-menu">
             <div class="balance-menu">
                 <div class="balance-now">
-                    NOK <span class="odometer" id="total-balance-dynamic">4481</span>
+                    NOK <span class="odometer" id="total-balance-dynamic">5946</span>
                 </div>
                 <div class="available-total-balance">Available total balance</div>
                 <div class="investment-gap">
@@ -97,11 +97,11 @@
                                     <div class="asset-name">Cash</div>
                                     <div class="asset-price" id="kontanter-price">Penger i kontanter</div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">2481 NOK</div>
+                                <div class="percentage-investment" id="kontanter-value">5,477.53 NOK</div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">2481 NOK</div>
+                                    <div class="profit-dynamic" id="kontanter-value-notes">5,477.53 NOK</div>
                                 </div>
                             </div>
                         </div>
@@ -379,8 +379,8 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (4481 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(4481 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (5946 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(5946 + totalProfitNOK).toFixed(0)} NOK`;
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
