@@ -1,6 +1,7 @@
 /* Global box-sizing reset */
 *, *::before, *::after {
   box-sizing: border-box;
+  transition: 0.4s ease;
 }
 
 /* Body and font */
@@ -58,6 +59,7 @@ main {
   font-weight: 500;
   color: #000;
   text-align: center;
+  cursor: default;
 }
 
 .available-total-balance {
@@ -67,6 +69,7 @@ main {
   letter-spacing: 0.05em;
   color: #7a7a7a;
   text-align: center;
+  cursor: default;
 }
 
 .investment-gap {
@@ -84,6 +87,7 @@ main {
   font-weight: 500;
   color: #7a7a7a;
   text-align: center;
+  cursor: default;
 }
 
 
@@ -153,6 +157,7 @@ hr {
   letter-spacing: 0.05em;
   font-weight: 400;
   color: #000;
+  cursor: default;
 }
 
 .asset-name { font-size: 24px; }
@@ -164,6 +169,7 @@ hr {
   font-size: 21.7px;
   letter-spacing: 0.05em;
   font-weight: 400;
+  cursor: default;
 }
 
 .profit-bills-dynamic,
@@ -176,6 +182,7 @@ hr {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  cursor: default;
 }
 
 .profit-dynamic,
@@ -198,6 +205,11 @@ hr {
   flex-shrink: 0;
   width: 479px;
   height: 214px;
+  transition: 0.4s ease;
+}
+
+.investment-tab2:hover {
+  filter: invert();
 }
 
 
@@ -324,6 +336,7 @@ hr {
   font-weight: 400;
   align-self: stretch;
   position: relative;
+  cursor: default;
 }
 
 .text-block {
@@ -335,6 +348,7 @@ hr {
   font-weight: 400;
   align-self: stretch;
   position: relative;
+  cursor: default;
 }
 
 .logo-block-svg-footer {
@@ -430,6 +444,7 @@ footer {
   position: absolute;
   left: 394px;
   top: 247px;
+  cursor: default;
 }
 
 .country-section {
