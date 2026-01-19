@@ -15,7 +15,7 @@
         <div class="banking-menu">
             <div class="balance-menu">
                 <div class="balance-now">
-                    NOK <span class="odometer" id="total-balance-dynamic">5936</span>
+                    NOK <span class="odometer" id="total-balance-dynamic">6032</span>
                 </div>
                 <div class="available-total-balance">Available total balance</div>
                 <div class="investment-gap">
@@ -411,8 +411,8 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (5936 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(5936 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (6032 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(6032 + totalProfitNOK).toFixed(0)} NOK`;
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
