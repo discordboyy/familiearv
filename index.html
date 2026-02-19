@@ -15,7 +15,7 @@
         <div class="banking-menu">
             <div class="balance-menu">
                 <div class="balance-now">
-                    NOK <span class="odometer" id="total-balance-dynamic">6032</span>
+                    NOK <span class="odometer" id="total-balance-dynamic">6242</span>
                 </div>
                 <div class="available-total-balance">Available total balance</div>
                 <div class="investment-gap">
@@ -79,11 +79,11 @@
                                     <div class="asset-name">Digitale penger</div>
                                     <div class="asset-price" id="bankkonto-price">På en bankkonto</div>
                                 </div>
-                                <div class="percentage-investment" id="bankkonto-value">1246 NOK</div>
+                                <div class="percentage-investment" id="bankkonto-value">1465 NOK</div>
                             </div>
                             <div class="return-on-investment">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="bankkonto-value-notes">1246 NOK</div>
+                                    <div class="profit-dynamic" id="bankkonto-value-notes">1465 NOK</div>
                                 </div>
                             </div>
                         </div>
@@ -113,11 +113,11 @@
                                     <div class="asset-name">Digitalt</div>
                                     <div class="asset-price" id="kontanter-price">På en bankkonto</div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">1246 NOK</div>
+                                <div class="percentage-investment" id="kontanter-value">1465 NOK</div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">1246 NOK</div>
+                                    <div class="profit-dynamic" id="kontanter-value-notes">1465 NOK</div>
                                 </div>
                             </div>
                         </div>
@@ -411,8 +411,8 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (6032 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(6032 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (6242 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(6242 + totalProfitNOK).toFixed(0)} NOK`;
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
