@@ -15,7 +15,7 @@
         <div class="banking-menu">
             <div class="balance-menu">
                 <div class="balance-now">
-                    NOK <span class="odometer" id="total-balance-dynamic">6242</span>
+                    NOK <span class="odometer" id="total-balance-dynamic">6292</span>
                 </div>
                 <div class="available-total-balance">Available total balance</div>
                 <div class="investment-gap">
@@ -47,11 +47,11 @@
                                     <div class="asset-name">Cash</div>
                                     <div class="asset-price" id="kontanter-price">Penger i kontanter</div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">2690 NOK</div>
+                                <div class="percentage-investment" id="kontanter-value">2740 NOK</div>
                             </div>
                             <div class="return-on-investment">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">2690 NOK</div>
+                                    <div class="profit-dynamic" id="kontanter-value-notes">2740 NOK</div>
                                 </div>
                             </div>
                         </div>
@@ -94,14 +94,14 @@
                         <div class="container-connection-long-tab">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
-                                    <div class="asset-name">Cash</div>
-                                    <div class="asset-price" id="kontanter-price">Penger i kontanter</div>
+                                    <div class="asset-name" id="cash-name"></div>
+                                    <div class="asset-price" id="cash-desc"></div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">2690 NOK</div>
+                                <div class="percentage-investment" id="cash-value"></div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">2690 NOK</div>
+                                    <div class="profit-dynamic" id="cash-profit"></div>
                                 </div>
                             </div>
                         </div>
@@ -110,14 +110,14 @@
                         <div class="container-connection-long-tab">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
-                                    <div class="asset-name">Digitalt</div>
-                                    <div class="asset-price" id="kontanter-price">På en bankkonto</div>
+                                    <div class="asset-name" id="bank-name"></div>
+                                    <div class="asset-price" id="bank-desc"></div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">1465 NOK</div>
+                                <div class="percentage-investment" id="bank-value"></div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">1465 NOK</div>
+                                    <div class="profit-dynamic" id="bank-profit"></div>
                                 </div>
                             </div>
                         </div>
@@ -362,6 +362,41 @@
     { symbol: "SOL", amount: 0.24975040, investmentUSD: 46.54, targetNOK: 468.47 },
     ];
 
+    const assets = [
+        {
+            symbol: "cash",
+            name: "Cash",
+            description: "Penger i kontanter",
+            value: 490,
+            profit: 490
+        },
+        {
+            symbol: "bank",
+            name: "Digitalt",
+            description: "På en bankkonto",
+            value: 3715,
+            profit: 3715
+        }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        assets.forEach(asset => {
+
+            document.getElementById(asset.symbol + "-name").textContent = asset.name;
+
+            document.getElementById(asset.symbol + "-desc").textContent = asset.description;
+
+            document.getElementById(asset.symbol + "-value").textContent =
+                asset.value + " NOK";
+
+            document.getElementById(asset.symbol + "-profit").textContent =
+                asset.profit + " NOK";
+
+        });
+
+    });
+
     let lastProfits = {}; // для хранения результатов
 
     // Универсальная функция обновления
@@ -411,8 +446,8 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (6242 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(6242 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (6292 / 100));
+        if (totalBalanceEl) totalBalanceEl.textContent = `${(6292 + totalProfitNOK).toFixed(0)} NOK`;
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
