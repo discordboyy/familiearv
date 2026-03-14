@@ -142,14 +142,14 @@
                         <div class="container-connection-long-tab">
                             <div class="investment-information">
                                 <div class="invest-asset-info">
-                                    <div class="asset-name">Virtuell</div>
-                                    <div class="asset-price" id="kontanter-price">På børsen</div>
+                                    <div class="asset-name" id="virtuell-name"></div>
+                                    <div class="asset-price" id="virtuell-desc"></div>
                                 </div>
-                                <div class="percentage-investment" id="kontanter-value">1,531.53 NOK</div>
+                                <div class="percentage-investment" id="virtuell-value"></div>
                             </div>
                             <div class="return-on-investment2">
                                 <div class="profit-bills-dynamic">
-                                    <div class="profit-dynamic" id="kontanter-value-notes">1,531.53 NOK</div>
+                                    <div class="profit-dynamic" id="virtuell-profit"></div>
                                 </div>
                             </div>
                         </div>
@@ -367,34 +367,65 @@
             symbol: "cash",
             name: "Cash",
             description: "Penger i kontanter",
-            value: 490,
-            profit: 490
+            value: 50,
+            profit: 50,
+            currency: "USD"
         },
         {
             symbol: "bank",
             name: "Digitalt",
             description: "På en bankkonto",
             value: 3715,
-            profit: 3715
+            profit: 3715,
+            currency: "NOK"
+        },
+        {
+            symbol: "virtuell",
+            name: "Virtuell",
+            description: "På børsen",
+            value: 1531.53,
+            profit: 1531.53,
+            currency: "NOK"
         }
     ];
 
-    document.addEventListener("DOMContentLoaded", () => {
+    let baseBalanceNOK = 0;
 
-        assets.forEach(asset => {
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
 
-            document.getElementById(asset.symbol + "-name").textContent = asset.name;
+            const fxRes = await fetch("https://open.er-api.com/v6/latest/USD");
+            const fxData = await fxRes.json();
+            const usdToNok = fxData.rates.NOK;
 
-            document.getElementById(asset.symbol + "-desc").textContent = asset.description;
+            baseBalanceNOK = 0;
 
-            document.getElementById(asset.symbol + "-value").textContent =
-                asset.value + " NOK";
+            assets.forEach(asset => {
+                let valueNOK = asset.value;
+                let profitNOK = asset.profit;
 
-            document.getElementById(asset.symbol + "-profit").textContent =
-                asset.profit + " NOK";
+                if (asset.currency === "USD") {
+                    valueNOK = asset.value * usdToNok;
+                    profitNOK = asset.profit * usdToNok;
+                }
 
-        });
+                baseBalanceNOK += valueNOK;
 
+                document.getElementById(asset.symbol + "-name").textContent = asset.name;
+                document.getElementById(asset.symbol + "-desc").textContent = asset.description;
+                document.getElementById(asset.symbol + "-value").textContent = `${valueNOK.toFixed(2)} NOK`;
+                document.getElementById(asset.symbol + "-profit").textContent = `${profitNOK.toFixed(2)} NOK`;
+            });
+
+            coins.forEach(coin => {
+                baseBalanceNOK += coin.targetNOK;
+            });
+
+            console.log("Base balance:", baseBalanceNOK);
+
+        } catch (error) {
+            console.error("Feil ved henting av valutakurs:", error);
+        }
     });
 
     let lastProfits = {}; // для хранения результатов
@@ -446,8 +477,9 @@
         const percentEl = document.getElementById("investment-gap-dynamic-percent");
         const notesEl = document.getElementById("investment-gap-dynamic-notes");
 
-        const totalPercent = (totalProfitNOK / (6292 / 100));
-        if (totalBalanceEl) totalBalanceEl.textContent = `${(6292 + totalProfitNOK).toFixed(0)} NOK`;
+        const totalPercent = (totalProfitNOK / (baseBalanceNOK / 100));
+        if (totalBalanceEl)
+            totalBalanceEl.textContent = (baseBalanceNOK + totalProfitNOK).toFixed(0);
         if (percentEl) percentEl.textContent = `${totalPercent.toFixed(2)} %`;
         if (notesEl) notesEl.textContent = `${totalProfitNOK.toFixed(1)} NOK`;
 
