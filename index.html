@@ -362,6 +362,8 @@
     { symbol: "SOL", amount: 0.24975040, investmentUSD: 46.54, targetNOK: 468.47 },
     ];
 
+    let extraCashNOK = 183;
+
     const assets = [
         {
             symbol: "cash",
@@ -407,6 +409,12 @@
                 if (asset.currency === "USD") {
                     valueNOK = asset.value * usdToNok;
                     profitNOK = asset.profit * usdToNok;
+
+                    // ➕ legg til ekstra NOK kun for cash
+                    if (asset.symbol === "cash") {
+                        valueNOK += extraCashNOK;
+                        profitNOK += extraCashNOK;
+                    }
                 }
 
                 baseBalanceNOK += valueNOK;
