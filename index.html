@@ -445,7 +445,7 @@
             });
 
             coins.forEach(coin => {
-                baseBalanceNOK += coin.targetNOK;
+                baseBalanceNOK += coin.investmentUSD * usdToNok;
             });
 
             console.log("Base balance:", baseBalanceNOK);
@@ -480,9 +480,16 @@
         if (!priceUSD) return;
 
         const currentValueUSD = amount * priceUSD;
+
+        // цена входа (как на бирже)
+        const entryPrice = investmentUSD / amount;
+        
+        // биржевой процент
+        const percent = ((priceUSD - entryPrice) / entryPrice) * 100;
+        
+        // прибыль (оставляем твою NOK-логику)
         const profitUSD = currentValueUSD - investmentUSD;
         const profitNOK = profitUSD * usdToNok;
-        const percent = (profitNOK / targetNOK) * 100;
 
         // Сохраняем для общего итога
         lastProfits[symbol] = profitNOK;
