@@ -3,7 +3,7 @@
   box-sizing: border-box;
   transition: 0.4s ease;
 }
-
+ 
 /* Body and font */
 body {
   touch-action: manipulation; /* helps with gestures on mobile */
