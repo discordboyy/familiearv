@@ -170,6 +170,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="investment-tab2">
+                        <div class="container-connection-long-tab">
+                            <div class="investment-information">
+                                <div class="invest-asset-info">
+                                    <div class="asset-name" id="nordnet-name"></div>
+                                    <div class="asset-price" id="nordnet-desc"></div>
+                                </div>
+                                <div class="percentage-investment" id="nordnet-value"></div>
+                            </div>
+                            <div class="return-on-investment2">
+                                <div class="profit-bills-dynamic">
+                                    <div class="profit-dynamic" id="nordnet-profit"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -378,7 +394,7 @@
     { symbol: "ETH", amount: 0.07491659, investmentUSD: 159.4095275, targetNOK: 1594.10 },
     ];
 
-    let extraCashNOK = 273;
+    let extraCashNOK = 52;
 
     const assets = [
         {
@@ -404,7 +420,15 @@
              value: 39.05966,
              profit: 39.05966,
              currency: "USD"
-}
+        },
+        {
+             symbol: "Nordnet",
+             name: "Nordnet",
+             description: "På aksjesparekonto og fondskonto",
+             value: 273,
+             profit: 0,
+             currency: "Nok"
+        },
     ]; 
 
     let baseBalanceNOK = 0;
